@@ -16,6 +16,8 @@ namespace ITS2022_C.Biblioteca
         public string Descrizione => $"{this.Titolo} di {this.Autore}";
         public void VaInPrestito(Utente utente)
             => CambiaStato(utente, 1);
+        public void VieneVenduto(Utente utente)
+            => CambiaStato(utente, 2);
         private void CambiaStato(Utente utente, int nuovoStato)
         {
             if (Possessore != null && utente.Id == Possessore.Id)
@@ -33,7 +35,7 @@ namespace ITS2022_C.Biblioteca
                     if (Stato == 1)
                         Console.WriteLine($"Libro {Descrizione} noleggiato da {Possessore.Denominazione}.");
                     else if (Stato == 2)
-                        Console.WriteLine($"Libro {Descrizione} noleggiato da {Possessore.Denominazione}.");
+                        Console.WriteLine($"Libro {Descrizione} venduto a {Possessore.Denominazione}.");
                     break;
                 case 1:
                     Console.WriteLine($"Libro {Descrizione} già noleggiato.");
@@ -45,9 +47,6 @@ namespace ITS2022_C.Biblioteca
                     throw new ArgumentException($"Stato sconosciuto per il libro {Descrizione}");
             }
         }
-        public void VieneVenduto(Utente utente)
-            => CambiaStato(utente, 2);
-
         public void Restituzione()
         {
             switch (Stato)
