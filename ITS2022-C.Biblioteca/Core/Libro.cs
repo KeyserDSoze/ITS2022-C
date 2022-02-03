@@ -11,7 +11,7 @@ namespace ITS2022_C.Biblioteca
         public string Id { get; init; }
         public string Titolo { get; init; }
         public string Autore { get; init; }
-        public Utente Possessore { get; set; }
+        public Utente Possessore { get; private set; }
         public int Stato { get; set; }
         public string Descrizione => $"{this.Titolo} di {this.Autore}";
         public void VaInPrestito(Utente utente)

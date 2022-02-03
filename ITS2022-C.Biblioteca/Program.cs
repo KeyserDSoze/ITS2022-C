@@ -17,8 +17,10 @@ namespace ITS2022_C.Biblioteca
                 Autore = "Primo Levi",
                 Titolo = "Se questo è un uomo"
             };
+            
 
             libro.VaInPrestito(utente1);
+            //libro.Possessore = null; //deve essere evitato e quindi metto private set
             libro.VaInPrestito(utente2);
             libro.Restituzione();
             libro.VieneVenduto(utente2);
