@@ -3,28 +3,28 @@
 
 using ITS2022_C.Properties;
 
-//OldPersona personaOld = new OldPersona();
-//string input = "Alessandro Rapiti";
-//personaOld.Nome = input.Replace(" ", string.Empty);
-//personaOld.Nome = input.Replace(" ", string.Empty);
-//personaOld.Nome = input.Replace(" ", string.Empty);
-//personaOld.Nome = input.Replace(" ", string.Empty);
-//Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
-//Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
-//Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
-//Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
+OldPersona personaOld = new OldPersona();
+string input = "Alessandro Rapiti";
+personaOld.Nome = input.Replace(" ", string.Empty);
+personaOld.Nome = input.Replace(" ", string.Empty);
+personaOld.Nome = input.Replace(" ", string.Empty);
+personaOld.Nome = input.Replace(" ", string.Empty);
+Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
+Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
+Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
+Console.WriteLine(personaOld.Nome.Substring(0, 1).ToUpper() + personaOld.Nome.Substring(1).ToLower());
 
-//Persona persona = new Persona();
-//persona.SetNome(input);
-//Console.WriteLine(persona.GetNome());
+Persona persona = new Persona();
+persona.SetNome(input);
+Console.WriteLine(persona.GetNome());
 
 
 
-//NewPersonaWithLambda a = new();
-//a.Nome = input;
+NewPersonaWithLambda a = new();
+a.Nome = input;
 
-//ClassicPersona b = new();
-//b.Nome = input;
+ClassicPersona b = new();
+b.Nome = input;
 
 InitOnlyPersona ip = new()
 {
