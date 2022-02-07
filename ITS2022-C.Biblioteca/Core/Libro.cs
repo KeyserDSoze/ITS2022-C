@@ -12,35 +12,35 @@ namespace ITS2022_C.Biblioteca
         public string Titolo { get; init; }
         public string Autore { get; init; }
         public Utente Possessore { get; private set; }
-        public int Stato { get; set; }
+        public Stato Stato { get; set; }
         public string Descrizione => $"{this.Titolo} di {this.Autore}";
         public void VaInPrestito(Utente utente)
-            => CambiaStato(utente, 1);
+            => CambiaStato(utente, Stato.Prestato);
         public void VieneVenduto(Utente utente)
-            => CambiaStato(utente, 2);
-        private void CambiaStato(Utente utente, int nuovoStato)
+            => CambiaStato(utente, Stato.Venduto);
+        private void CambiaStato(Utente utente, Stato nuovoStato)
         {
             if (Possessore != null && utente.Id == Possessore.Id)
             {
-                if (Stato == 1)
+                if (Stato == Stato.Prestato)
                     Console.WriteLine($"Libro {Descrizione} già noleggiato da {Possessore.Denominazione}.");
-                else if (Stato == 2)
+                else if (Stato == Stato.Venduto)
                     Console.WriteLine($"Libro {Descrizione} già venduto a {Possessore.Denominazione}.");
             }
             switch (Stato)
             {
-                case 0:
+                case Stato.Disponibile:
                     Possessore = utente;
                     Stato = nuovoStato;
-                    if (Stato == 1)
+                    if (Stato == Stato.Prestato)
                         Console.WriteLine($"Libro {Descrizione} noleggiato da {Possessore.Denominazione}.");
-                    else if (Stato == 2)
+                    else if (Stato == Stato.Venduto)
                         Console.WriteLine($"Libro {Descrizione} venduto a {Possessore.Denominazione}.");
                     break;
-                case 1:
+                case Stato.Prestato:
                     Console.WriteLine($"Libro {Descrizione} già noleggiato.");
                     break;
-                case 2:
+                case Stato.Venduto:
                     Console.WriteLine($"Libro {Descrizione} già acquistato.");
                     break;
                 default:
@@ -51,15 +51,15 @@ namespace ITS2022_C.Biblioteca
         {
             switch (Stato)
             {
-                case 1:
+                case Stato.Prestato:
                     Console.WriteLine($"Fine prestito libro {Descrizione} a {Possessore.Denominazione}");
                     Possessore = null;
                     Stato = 0;
                     break;
-                case 2:
+                case Stato.Venduto:
                     Console.WriteLine($"Non è possibile restituire un libro acquistato.");
                     break;
-                case 0:
+                case Stato.Disponibile:
                     Console.WriteLine($"Non è possibile restituire un libro già presente.");
                     break;
             }
@@ -68,15 +68,15 @@ namespace ITS2022_C.Biblioteca
         {
             switch (Stato)
             {
-                case 2:
+                case Stato.Venduto:
                     Console.WriteLine($"Libro {Descrizione} ricomprato da {Possessore.Denominazione}");
                     Possessore = null;
                     Stato = 0;
                     break;
-                case 1:
+                case Stato.Prestato:
                     Console.WriteLine($"Non è possibile riacquistare un libro noleggiato.");
                     break;
-                case 0:
+                case Stato.Disponibile:
                     Console.WriteLine($"Non è possibile riacquistare un libro già presente.");
                     break;
             }
