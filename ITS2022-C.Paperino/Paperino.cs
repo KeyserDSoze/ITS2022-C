@@ -11,6 +11,8 @@ namespace ITS2022_C.Paperino
     {
         public virtual Color GetColorShirt()
             => Color.White;
+        public virtual Color GetColorShirt2()
+           => Color.White;
         public abstract Color GetColorLight();
         public abstract Color GetColorDark();
     }

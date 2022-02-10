@@ -13,7 +13,6 @@ namespace ITS2022_C.Paperino
         {
             return Color.BlanchedAlmond;
         }
-
         public override Color GetColorLight()
         {
             //base.GetColorLight();
@@ -24,6 +23,10 @@ namespace ITS2022_C.Paperino
             var color = base.GetColorShirt();
             ///
             return Color.RebeccaPurple;
+        }
+        public override Color GetColorShirt2()
+        {
+            return Color.Aqua;
         }
     }
 }

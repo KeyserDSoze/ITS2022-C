@@ -2,6 +2,6 @@
 using ITS2022_C.Paperino;
 
 PaperinoFactory paperinoFactory = new PaperinoFactory();
-var paperino = paperinoFactory.Create();
+Paperino? paperino = paperinoFactory.Create();
 var c = paperino.GetColorShirt();
 var c2 = paperino.GetColorLight();

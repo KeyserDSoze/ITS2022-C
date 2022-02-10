@@ -11,9 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS2022-C.Properties", "ITS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS2022-C.Biblioteca", "ITS2022-C.Biblioteca\ITS2022-C.Biblioteca.csproj", "{EDD5AEF0-903C-4EAC-ACED-6792793D2C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS2022-C.Factory", "ITS2022-C.Factory\ITS2022-C.Factory.csproj", "{B2AFA1F4-44D5-4460-B74D-DF1FD5303BF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS2022-C.Factory", "ITS2022-C.Factory\ITS2022-C.Factory.csproj", "{B2AFA1F4-44D5-4460-B74D-DF1FD5303BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS2022-C.Paperino", "ITS2022-C.Paperino\ITS2022-C.Paperino.csproj", "{7C2EDC07-5D84-4895-8C11-7586A71AEF21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS2022-C.Paperino", "ITS2022-C.Paperino\ITS2022-C.Paperino.csproj", "{7C2EDC07-5D84-4895-8C11-7586A71AEF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS2022-C.NoeFramework", "ITS2022-C.NoeFramework\ITS2022-C.NoeFramework.csproj", "{61648549-543C-4BB5-B23E-05B04681D09D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS2022-C.NoeFramework.Output", "ITS2022-C.NoeFramework.Output\ITS2022-C.NoeFramework.Output.csproj", "{86E9A2AF-E5E7-4E36-B8FB-FFA51EE0C7BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS2022-C.NoeFrameworkWithInterfaces", "ITS2022-C.NoeFrameworkWithInterfaces\ITS2022-C.NoeFrameworkWithInterfaces.csproj", "{3B8306B1-928B-4B44-A0E6-AF3BA4FDA9FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{7C2EDC07-5D84-4895-8C11-7586A71AEF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C2EDC07-5D84-4895-8C11-7586A71AEF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C2EDC07-5D84-4895-8C11-7586A71AEF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61648549-543C-4BB5-B23E-05B04681D09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61648549-543C-4BB5-B23E-05B04681D09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61648549-543C-4BB5-B23E-05B04681D09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61648549-543C-4BB5-B23E-05B04681D09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E9A2AF-E5E7-4E36-B8FB-FFA51EE0C7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E9A2AF-E5E7-4E36-B8FB-FFA51EE0C7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E9A2AF-E5E7-4E36-B8FB-FFA51EE0C7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E9A2AF-E5E7-4E36-B8FB-FFA51EE0C7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8306B1-928B-4B44-A0E6-AF3BA4FDA9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8306B1-928B-4B44-A0E6-AF3BA4FDA9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8306B1-928B-4B44-A0E6-AF3BA4FDA9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8306B1-928B-4B44-A0E6-AF3BA4FDA9FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
