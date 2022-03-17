@@ -13,7 +13,7 @@ namespace ITS2022_C.Library
             var x = new ItalianIdentityCard().NameSurname;
             var y = new ItalianIdentityCard().Number;
             new ItalianIdentityCard().Something3();
-            new IdentityCard();
+            //new IdentityCard();
         }
     }
 }
