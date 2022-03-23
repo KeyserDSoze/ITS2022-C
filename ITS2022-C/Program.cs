@@ -5,3 +5,8 @@ Console.WriteLine("Hello, World!");
 var x = new ItalianIdentityCard().NameSurname;
 var identityCard = new ItalianIdentityCard();
 identityCard.Check();
+
+
+List<ItalianIdentityCard> cards = new();
+cards.Any(ItalianIdentityCard.Check);
+var allWithA = cards.Where(x => x.NameSurname.Contains("a"));

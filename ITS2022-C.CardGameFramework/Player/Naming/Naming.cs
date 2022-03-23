@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text;
 
-namespace TheScopaGame
+namespace ITS2022_C.CardGameFramework
 {
     public static class Naming
     {
@@ -15,7 +15,7 @@ namespace TheScopaGame
             Dictionary<char, int> values = new();
             StringBuilder start = new();
             string path = string.Join(@"\", Assembly.GetExecutingAssembly().Location.Split('\\').SkipLast(1));
-            foreach (var line in File.ReadAllLines($@"{path}\Game\Player\letterfrequency.csv"))
+            foreach (var line in File.ReadAllLines($@"{path}\Player\letterfrequency.csv"))
             {
                 var x = line.Split(',');
                 char c = x[0][0];
