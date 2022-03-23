@@ -4,11 +4,12 @@ namespace ThePokerGame.Business
 {
     public class PokerGame : Game
     {
-        public PokerGame(Func<string, string> input, Func<string, bool> output, int numberOfPlayers = 2) : base(new PokerTable(),
-                                                         new Dictionary<int, string> { { 1, "Human" }, { 2, "Cpu" } },
-                                                         input, output,
-                                                         numberOfPlayers,
-                                                         13, 4, true)
+        public PokerGame(Func<string, string> input, Func<string, bool> output, int numberOfPlayers = 2) 
+            : base(new PokerTable(),
+                    new Dictionary<int, string> { { 1, "Human" }, { 2, "Cpu" } },
+                    input, output,
+                    numberOfPlayers,
+                    13, 4, true)
         {
 
         }
