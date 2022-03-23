@@ -1,70 +1,72 @@
 ﻿using ITS2022_C.CardGameFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ThePokerGame.Business
 {
-    internal class PokerTable : ITable
+    public class PokerGame : Game
     {
-        public List<Card> Surface => throw new NotImplementedException();
-        public List<Card> PlayACard(Card card)
-        {
-            throw new NotImplementedException();
-        }
-    }
-    internal class BasePokerPlayer : IPlayer
-    {
-        private readonly string name = Naming.Get(Guid.NewGuid().ToString("N") + Guid.NewGuid().ToString("N")[0..7]);
-        public string Name => $"{name[0..1].ToUpper()}{name[1..]}";
-
-        public int GetPoints()
-        {
-            throw new NotImplementedException();
-        }
-
-        public (Card Card, List<Card> Taken) Play(ITable table, Deck deck)
-        {
-            throw new NotImplementedException();
-        }
-    }
-    internal class HumanPlayer : BasePokerPlayer { }
-    internal class CpuPlayer : BasePokerPlayer { }
-    internal class PokerGame : Game
-    {
-        public PokerGame(int numberOfPlayers = 2) : base(new PokerTable(),
+        public PokerGame(Func<string, string> input, Func<string, bool> output, int numberOfPlayers = 2) : base(new PokerTable(),
                                                          new Dictionary<int, string> { { 1, "Human" }, { 2, "Cpu" } },
+                                                         input, output,
                                                          numberOfPlayers,
                                                          13, 4, true)
         {
 
         }
 
-        public override void End()
+        public override void End(Dictionary<string, int> rank)
         {
-            throw new NotImplementedException();
+            var orderedPlayers = Players
+                        .Select(x => new
+                        {
+                            Name = x.Name,
+                            Points = x.GetPoints(Table, Players.Where(x => x.Name != x.Name))
+                        })
+                        .OrderByDescending(x => x.Points).ToList();
+            var possibleWinners = orderedPlayers
+                        .GroupBy(x => x.Points)
+                        .First();
+            Output($"Table: {string.Join(", ", Table.Surface)}");
+            foreach (var player in Players)
+                Output($"Player {player.Name}: {string.Join(", ", player.Hand)}");
+            if (possibleWinners.Count() > 1)
+                Output($"Draw between {string.Join(',', possibleWinners)} with {possibleWinners.First().Points} points");
+            else
+                Output($"The winner is {possibleWinners.First().Name} with {possibleWinners.First().Points} points");
+            Output("Rank");
+            foreach (var player in orderedPlayers)
+            {
+                rank.Add(player.Name, player.Points);
+                Output($"Player {player.Name} with {player.Points} points");
+            }
         }
 
         public override bool IsOver()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public override void Turn()
         {
-            throw new NotImplementedException();
         }
 
         protected override IPlayer GetRightPlayer(int kind)
         {
-            throw new NotImplementedException();
+            switch (kind)
+            {
+                case 1:
+                    return new HumanPlayer();
+                case 2:
+                    return new CpuPlayer();
+                default:
+                    return null;
+            }
         }
 
         protected override void OnStart_()
         {
-            throw new NotImplementedException();
+            Table.PutCardsOnSurface(Deck.GetCards(5));
+            foreach (var player in Players)
+                player.PutCardsInHand(Deck.GetCards(2));
         }
     }
 }

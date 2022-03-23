@@ -1,4 +1,4 @@
-﻿namespace ITS
+﻿namespace TheScopaGame
 {
     public abstract class Player
     {

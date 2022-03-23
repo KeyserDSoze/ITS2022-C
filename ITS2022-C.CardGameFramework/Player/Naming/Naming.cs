@@ -15,7 +15,7 @@ namespace ITS2022_C.CardGameFramework
             Dictionary<char, int> values = new();
             StringBuilder start = new();
             string path = string.Join(@"\", Assembly.GetExecutingAssembly().Location.Split('\\').SkipLast(1));
-            foreach (var line in File.ReadAllLines($@"{path}\Player\letterfrequency.csv"))
+            foreach (var line in File.ReadAllLines($@"{path}\Player\Naming\letterfrequency.csv"))
             {
                 var x = line.Split(',');
                 char c = x[0][0];
@@ -23,7 +23,7 @@ namespace ITS2022_C.CardGameFramework
                 start.Append(new string(c, values.Last().Value));
             }
             Start = start.ToString();
-            foreach (var line in File.ReadAllLines($@"{path}\Game\Player\letternextone.csv"))
+            foreach (var line in File.ReadAllLines($@"{path}\Player\Naming\letternextone.csv"))
             {
                 var x = line.Split(',');
                 StringBuilder vowels = new();

@@ -8,19 +8,20 @@ namespace ITS2022_C.CardGameFramework
 {
     public class GameManager
     {
-        private readonly Game Game;
+        public Game Game { get; }
+        public Dictionary<string, int> Rank { get; } = new();
         public GameManager(Game game)
         {
             Game = game;
         }
-        public void Start()
+        public void Play()
         {
             Game.OnStart();
             while (!Game.IsOver())
             {
                 Game.Turn();
             }
-            Game.End();
+            Game.End(Rank);
         }
     }
 }

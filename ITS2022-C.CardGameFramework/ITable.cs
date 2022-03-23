@@ -4,5 +4,6 @@
     {
         List<Card> Surface { get; }
         List<Card> PlayACard(Card card);
+        void PutCardsOnSurface(List<Card> cards);
     }
 }

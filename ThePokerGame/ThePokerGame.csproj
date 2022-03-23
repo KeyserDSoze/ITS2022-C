@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITS2022-C.CardGameFramework\ITS2022-C.CardGameFramework.csproj" />
+  </ItemGroup>
+
 </Project>
