@@ -34,6 +34,5 @@
             return cards;
         }
         public bool IsOver => Values.Count == 0;
-
     }
 }

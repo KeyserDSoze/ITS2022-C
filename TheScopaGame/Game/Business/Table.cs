@@ -2,7 +2,7 @@
 {
     public class Table
     {
-        public List<Card> Surface { get; } = new();
+        public List<Card> Surface { get; } = new();*/-
         private static readonly List<Card> Empty = new();
         public List<Card> PlayACard(Card card)
         {

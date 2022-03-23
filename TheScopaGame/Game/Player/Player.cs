@@ -15,9 +15,10 @@
         {
             Card card = ChooseACard(table);
             var taken = table.PlayACard(card);
-            if (table.Surface.Count == 0)
+            if (table.Surface.Count == 0 && taken.Count > 0)
                 Scopa++;
-            Taken.AddRange(taken);
+            if (taken.Count > 0)
+                Taken.AddRange(taken);
             Hand.Remove(card);
             if (Hand.Count == 0 && !deck.IsOver)
                 RefillHand(deck);
@@ -50,7 +51,6 @@
                 Console.WriteLine($"{Name} has {Scopa} scopa{(Scopa > 1 ? "s" : string.Empty)}");
             return points + Scopa;
         }
-
         private protected abstract Card ChooseACard(Table table);
     }
 }

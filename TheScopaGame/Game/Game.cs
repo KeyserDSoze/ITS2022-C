@@ -3,7 +3,7 @@
     public class Game
     {
         public Deck Deck { get; }
-        public List<Player> Players { get; } = new();
+        public List<Player> Players { get; } = new(); 
         public Table Table { get; } = new();
         private string LastPlayerNameThatHasTakenSomething;
         public Game(int numberOfPlayers = 2, bool shuffle = true)
@@ -66,6 +66,7 @@
             Console.WriteLine("Ranking");
             foreach (var player in points.OrderByDescending(x => x.Value))
                 Console.WriteLine($"{player.Key} with {player.Value} points");
+            Console.WriteLine(Players.Sum(x => x.Taken.Count));
         }
     }
 }
