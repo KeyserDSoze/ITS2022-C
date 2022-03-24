@@ -8,21 +8,13 @@ namespace ThePokerGame.Business
         public List<PokerPoints> HasThatValue(List<Card> cards)
         {
             var orderedCards = cards.OrderByDescending(x => x.Value).ToList();
-            //5 or more cards with the same color
-            if (orderedCards.Count >= 5)
+            var hasScala = IPointCalculator.HasStraight(orderedCards);
+            if (hasScala.IsOk)
             {
-                var hasScala = IPointCalculator.HasScala(orderedCards);
-                if (hasScala.IsOk)
-                {
-                    return new List<PokerPoints>
+                return new List<PokerPoints>
                     {
                         new PokerPoints(hasScala.ValidCards, 1)
                     };
-                }
-                else
-                {
-                    return PokerPoints.EmptyList;
-                }
             }
             else
             {

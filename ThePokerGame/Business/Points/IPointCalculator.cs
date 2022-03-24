@@ -6,7 +6,7 @@ namespace ThePokerGame.Business
     {
         int Span { get; }
         List<PokerPoints> HasThatValue(List<Card> cards);
-        public static (bool IsOk, List<Card> ValidCards) HasScala(List<Card> cards)
+        public static (bool IsOk, List<Card> ValidCards) HasStraight(List<Card> cards)
         {
             var aces = cards
                         .Where(x => x.Value == 1)
@@ -14,7 +14,7 @@ namespace ThePokerGame.Business
             var orderedCards = new List<Card>();
             orderedCards.AddRange(aces);
             orderedCards.AddRange(cards.OrderByDescending(x => x.Value));
-            List<Card> validCards = new() { cards.First() };
+            List<Card> validCards = new() { orderedCards.First() };
             for (int i = 0; i < cards.Count - 1; i++)
             {
                 if (orderedCards[i + 1].Value - orderedCards[i].Value != -1)

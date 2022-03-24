@@ -12,7 +12,7 @@ namespace ThePokerGame.Business
             //5 or more cards with the same color
             if (cardsWithTheSameColor.Count >= 5)
             {
-                var hasScala = IPointCalculator.HasScala(cardsWithTheSameColor);
+                var hasScala = IPointCalculator.HasStraight(cardsWithTheSameColor);
                 if (hasScala.IsOk)
                 {
                     return new List<PokerPoints>
