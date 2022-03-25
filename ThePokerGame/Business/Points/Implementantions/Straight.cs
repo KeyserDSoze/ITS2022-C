@@ -6,15 +6,15 @@ namespace ThePokerGame.Business
     {
         public string Name => nameof(Straight);
         public int Span { get; } = 300_000_000;
-        public List<PokerPoints> HasThatValue(List<Card> cards)
+        public List<PokerPoints> Find(List<Card> cards)
         {
             var orderedCards = cards.OrderByDescending(x => x.Value).ToList();
-            var hasScala = IPointCalculator.HasStraight(orderedCards);
-            if (hasScala.IsOk)
+            var hasStraight = IPointCalculator.HasStraight(orderedCards);
+            if (hasStraight.IsOk)
             {
                 return new List<PokerPoints>
                     {
-                        new PokerPoints(hasScala.ValidCards, 1)
+                        new PokerPoints(hasStraight.ValidCards, 1)
                     };
             }
             else

@@ -6,7 +6,7 @@ namespace ThePokerGame.Business
     {
         public string Name => nameof(RoyalFlushAndStraightFlushCalculator);
         public int Span { get; } = 1_000_000_000;
-        public List<PokerPoints> HasThatValue(List<Card> cards)
+        public List<PokerPoints> Find(List<Card> cards)
         {
             var allSuits = cards.GroupBy(x => x.Suit);
             var cardsWithTheSameColor = allSuits.OrderByDescending(x => x.Key).First().ToList();

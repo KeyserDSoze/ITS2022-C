@@ -14,7 +14,7 @@ namespace ThePokerGame.Business
             FirstCount = firstCount;
             SecondCount = secondCount;
         }
-        public List<PokerPoints> HasThatValue(List<Card> cards)
+        public List<PokerPoints> Find(List<Card> cards)
         {
             var cardsWithAces = new List<Card>();
             cardsWithAces.AddRange(cards.Where(x => x.Value > 1));

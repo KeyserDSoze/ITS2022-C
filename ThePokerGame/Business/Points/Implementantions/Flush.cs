@@ -7,7 +7,7 @@ namespace ThePokerGame.Business
         public string Name => nameof(Flush);
         public int Span => 400_000_000;
 
-        public List<PokerPoints> HasThatValue(List<Card> cards)
+        public List<PokerPoints> Find(List<Card> cards)
         {
             var allSuits = cards.GroupBy(x => x.Suit);
             var cardsWithTheSameColor = allSuits.OrderByDescending(x => x.Key).First().ToList();

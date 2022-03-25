@@ -7,7 +7,7 @@ namespace ThePokerGame.Business
     {
         string Name { get; }
         int Span { get; }
-        List<PokerPoints> HasThatValue(List<Card> cards);
+        List<PokerPoints> Find(List<Card> cards);
         public static (bool IsOk, List<Card> ValidCards) HasStraight(List<Card> cards)
         {
             var aces = cards

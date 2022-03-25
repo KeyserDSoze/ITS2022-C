@@ -11,7 +11,7 @@ namespace ThePokerGame.Business
         private static readonly List<IPointCalculator> Calculators = new()
         {
             new RoyalFlushAndStraightFlushCalculator(),
-            new PokerCalculator(),
+            new Poker(),
             new FullHouse(),
             new Flush(),
             new Straight(),
@@ -28,7 +28,7 @@ namespace ThePokerGame.Business
             allCards.AddRange(table.Surface);
             foreach (var calculator in Calculators)
             {
-                var points = calculator.HasThatValue(allCards);
+                var points = calculator.Find(allCards);
                 if (points.Count > 0)
                 {
                     int value = calculator.Span;
