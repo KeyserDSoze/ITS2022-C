@@ -4,6 +4,7 @@ namespace ThePokerGame.Business
 {
     internal class Straight : IPointCalculator
     {
+        public string Name => nameof(Straight);
         public int Span { get; } = 300_000_000;
         public List<PokerPoints> HasThatValue(List<Card> cards)
         {

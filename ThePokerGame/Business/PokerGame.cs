@@ -14,7 +14,7 @@ namespace ThePokerGame.Business
 
         }
 
-        public override void End(Dictionary<string, int> rank)
+        public override void End(Dictionary<string, (int Value, string Name)> rank)
         {
             var orderedPlayers = Players
                         .Select(x => new

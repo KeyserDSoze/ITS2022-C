@@ -4,6 +4,7 @@ namespace ThePokerGame.Business
 {
     internal class Flush : IPointCalculator
     {
+        public string Name => nameof(Flush);
         public int Span => 400_000_000;
 
         public List<PokerPoints> HasThatValue(List<Card> cards)

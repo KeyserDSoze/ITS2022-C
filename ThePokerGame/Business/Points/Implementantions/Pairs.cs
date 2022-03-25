@@ -4,6 +4,7 @@ namespace ThePokerGame.Business
 {
     internal abstract class Pairs : IPointCalculator
     {
+        public string Name => GetType().Name;
         public int Span { get; }
         public int FirstCount { get; }
         public int SecondCount { get; }
@@ -18,8 +19,11 @@ namespace ThePokerGame.Business
             var cardsWithAces = new List<Card>();
             cardsWithAces.AddRange(cards.Where(x => x.Value > 1));
             cardsWithAces.AddRange(cards.Where(x => x.Value == 1).Select(x => new Card(14, x.Suit)));
-            var sameValueCards = cardsWithAces.GroupBy(x => x.Value).OrderByDescending(x => x.Count());
-            if (sameValueCards.First().Count() == FirstCount && (SecondCount == 0 || sameValueCards.Skip(1).First().Count() == SecondCount))
+            var sameValueCards = cardsWithAces.GroupBy(x => x.Value)
+                .OrderByDescending(x => x.Count())
+                .ThenByDescending(x => x.First().Value);
+            if (sameValueCards.First().Count() >= FirstCount && 
+                (SecondCount == 0 || sameValueCards.Skip(1).First().Count() >= SecondCount))
             {
                 if (SecondCount > 0)
                 {

@@ -5,7 +5,7 @@
         List<Card> Hand { get; }
         string Name { get; }
         public (Card Card, List<Card> Taken) Play(ITable table, Deck deck);
-        int GetPoints(ITable table, IEnumerable<IPlayer> otherPlayers);
+        (int Value, string Name) GetPoints(ITable table, IEnumerable<IPlayer> otherPlayers);
         void PutCardsInHand(List<Card> cards);
     }
 }

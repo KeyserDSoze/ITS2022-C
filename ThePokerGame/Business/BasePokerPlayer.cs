@@ -21,7 +21,7 @@ namespace ThePokerGame.Business
             new HighCard()
         };
 
-        public int GetPoints(ITable table, IEnumerable<IPlayer> otherPlayers)
+        public (int Value, string Name) GetPoints(ITable table, IEnumerable<IPlayer> otherPlayers)
         {
             List<Card> allCards = new();
             allCards.AddRange(Hand);
@@ -36,10 +36,10 @@ namespace ThePokerGame.Business
                     {
                         value += point.Multiplier * point.Cards.Sum(x => x.Value);
                     }
-                    return value;
+                    return (value, calculator.Name);
                 }
             }
-            return 0;
+            return (0, string.Empty);
         }
 
         public (Card Card, List<Card> Taken) Play(ITable table, Deck deck)

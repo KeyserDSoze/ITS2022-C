@@ -4,6 +4,7 @@ namespace ThePokerGame.Business
 {
     internal class RoyalFlushAndStraightFlushCalculator : IPointCalculator
     {
+        public string Name => nameof(RoyalFlushAndStraightFlushCalculator);
         public int Span { get; } = 1_000_000_000;
         public List<PokerPoints> HasThatValue(List<Card> cards)
         {

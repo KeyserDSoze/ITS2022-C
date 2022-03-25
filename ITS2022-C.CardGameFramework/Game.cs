@@ -52,6 +52,6 @@ namespace ITS2022_C.CardGameFramework
         protected abstract void OnStart_();
         public abstract void Turn();
         public abstract bool IsOver();
-        public abstract void End(Dictionary<string, int> rank);
+        public abstract void End(Dictionary<string, (int Value, string Name)> rank);
     }
 }
