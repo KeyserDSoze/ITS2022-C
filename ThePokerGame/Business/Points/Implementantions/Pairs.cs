@@ -21,7 +21,7 @@ namespace ThePokerGame.Business
             cardsWithAces.AddRange(cards.Where(x => x.Value == 1).Select(x => new Card(14, x.Suit)));
             var sameValueCards = cardsWithAces.GroupBy(x => x.Value)
                 .OrderByDescending(x => x.Count())
-                .ThenByDescending(x => x.First().Value);
+                .ThenByDescending(x => x.Key);
             if (sameValueCards.First().Count() >= FirstCount && 
                 (SecondCount == 0 || sameValueCards.Skip(1).First().Count() >= SecondCount))
             {

@@ -13,6 +13,12 @@ namespace ThePokerGame.Business
         {
 
         }
+        public override void PrepareForTest(List<Card> deck)
+        {
+            List<Card> firstCards = Deck.Values.Where(x => deck.Any(c => c.Value == x.Value && c.Suit == x.Suit)).ToList();
+            Deck.Values.Clear();
+            Deck.Values.AddRange(firstCards);
+        }
 
         public override void End(Dictionary<string, (int Value, string Name)> rank)
         {

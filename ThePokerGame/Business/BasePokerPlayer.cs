@@ -10,7 +10,7 @@ namespace ThePokerGame.Business
         public List<Card> Hand { get; } = new();
         private static readonly List<IPointCalculator> Calculators = new()
         {
-            new RoyalFlushAndStraightFlushCalculator(),
+            new RoyalFlushAndStraightFlush(),
             new Poker(),
             new FullHouse(),
             new Flush(),

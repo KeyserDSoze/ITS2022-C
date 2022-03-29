@@ -2,14 +2,14 @@
 
 namespace ThePokerGame.Business
 {
-    internal class RoyalFlushAndStraightFlushCalculator : IPointCalculator
+    internal class RoyalFlushAndStraightFlush : IPointCalculator
     {
-        public string Name => nameof(RoyalFlushAndStraightFlushCalculator);
+        public string Name => nameof(RoyalFlushAndStraightFlush);
         public int Span { get; } = 1_000_000_000;
         public List<PokerPoints> Find(List<Card> cards)
         {
             var allSuits = cards.GroupBy(x => x.Suit);
-            var cardsWithTheSameColor = allSuits.OrderByDescending(x => x.Key).First().ToList();
+            var cardsWithTheSameColor = allSuits.OrderByDescending(x => x.Count()).First().ToList();
             //5 or more cards with the same color
             if (cardsWithTheSameColor.Count >= 5)
             {

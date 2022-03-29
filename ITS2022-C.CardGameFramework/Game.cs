@@ -26,6 +26,7 @@ namespace ITS2022_C.CardGameFramework
             Output = output;
         }
         protected abstract IPlayer GetRightPlayer(int kind);
+        public abstract void PrepareForTest(List<Card> deck);
         public void OnStart()
         {
             for (int i = 0; i < NumberOfPlayers; i++)
